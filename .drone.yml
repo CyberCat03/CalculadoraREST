@@ -1,0 +1,13 @@
+kind: pipeline
+name: default
+
+steps:
+- name: build
+  image: maven:3.8.4-openjdk-11
+  commands:
+  - mvn clean install -DskipTests=true
+
+- name: test
+  image: maven:3.8.4-openjdk-11
+  commands:
+  - mvn test
